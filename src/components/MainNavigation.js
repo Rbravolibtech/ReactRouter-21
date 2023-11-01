@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 
 function MainNavigation() {
@@ -8,14 +7,30 @@ function MainNavigation() {
 			<nav>
 				<ul className={classes.list}>
 					<li>
-						<Link to="/">HOME</Link>
+						<NavLink
+							to="/"
+							className={({ isActive }) =>
+								isActive ? classes.active : undefined
+							}
+							end
+						>
+							HOME
+						</NavLink>
 					</li>
 					<li>
-						<Link to="/products">PRODUCTS</Link>
+						<NavLink
+							to="/products"
+							className={({ isActive }) =>
+								isActive ? classes.active : undefined
+							}
+						>
+							PRODUCTS
+						</NavLink>
 					</li>
 				</ul>
 			</nav>
 		</header>
 	);
 }
+
 export default MainNavigation;
